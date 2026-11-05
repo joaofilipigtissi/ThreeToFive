@@ -3,7 +3,7 @@
 Joguinho de raciocínio rápido feito em **Godot 4.6**: o jogo mostra três números e você tem que escolher os dois operadores certos para que a conta dê **5**, antes que o tempo acabe.
 
 ```
-  2  [ * ]  5  [ - ]  5   =  5   ✔
+  2  [ * ]  5  [ - ]  5   =  5  
 ```
 
 ## Como jogar
@@ -18,8 +18,8 @@ Joguinho de raciocínio rápido feito em **Godot 4.6**: o jogo mostra três núm
 ### Regras da conta
 
 - A **precedência matemática é respeitada**: `*` e `/` são calculados antes de `+` e `-`.
-  - `1 + 9 - 4` = 6 ❌
-  - `1 * 9 - 4` = 5 ✔
+  - `1 + 9 - 4` = 6 - ERRADO
+  - `1 * 9 - 4` = 5 - CORRETO
 - Divisão por zero retorna 0.
 - A divisão é real (`7 / 2 = 3.5`), então o resultado só vale se for exatamente 5.
 
@@ -92,8 +92,3 @@ Para mudar o número alvo, altere a variável `target` no topo do script (e o te
 - A função `update_expression_display()` lê os operadores, mas ainda não atualiza nada na tela.
 - Arquivos que podem ser removidos do repositório: `main.tscn*.tmp`, `main.gltf`, `main.gltf.import` e `main0.bin` (sobras do editor).
 - Ideias: tela de game over com recorde, vidas, alvo variável por rodada, rodadas geradas automaticamente.
-
-## Créditos
-
-- Engine: [Godot](https://godotengine.org/)
-- Fonte: Press Start (Codeman38)
