@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://1k4b0f05xblc"]
+
+[ext_resource type="Script" uid="uid://clgorhgfpgvm7" path="res://Scripts/Machine.gd" id="1_gkykp"]
+[ext_resource type="Texture2D" uid="uid://coagjac3ib14r" path="res://Scenes/Machine/machine2.png" id="2_gkykp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkykp"]
+size = Vector2(66, 96)
+
+[node name="Machine" type="Node2D" unique_id=1307664682]
+script = ExtResource("1_gkykp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2055075101]
+texture = ExtResource("2_gkykp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1038150723]
+position = Vector2(0, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1129945454]
+position = Vector2(1, -20)
+shape = SubResource("RectangleShape2D_gkykp")
+debug_color = Color(6.256998e-07, 0.62530327, 0.52426195, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=704864838]
+visible = false
+offset_left = -44.0
+offset_top = -84.0
+offset_right = 45.0
+offset_bottom = -61.0
+text = "Pressione E"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bwp0mn7b0cn6"]
+
+[ext_resource type="Script" uid="uid://bux8igukvdgov" path="res://Scripts/Main.gd" id="1_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://dqnqjtalofdss" path="res://Scenes/Player/Player.tscn" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://bupfcmjjy0ymo" path="res://Scenes/UI/fundoMenu.jpg" id="2_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://1k4b0f05xblc" path="res://Scenes/Machine/Machine.tscn" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://c4yvf0cw4oj85" path="res://Scenes/Machine/MachinePanel.tscn" id="5_pbw6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
+
+[node name="Main" type="Node2D" unique_id=1143950845]
+script = ExtResource("1_rgh2o")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=42205055]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=868306204]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=903730475]
+position = Vector2(36, 7)
+shape = SubResource("RectangleShape2D_pbw6q")
+one_way_collision = true
+one_way_collision_margin = 5.0
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=2138103355]
+
+[node name="Machine" parent="." unique_id=1307664682 instance=ExtResource("3_kln2b")]
+z_index = 5
+position = Vector2(165, -38)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Machine" unique_id=527686670]
+
+[node name="Area2D2" type="Area2D" parent="Machine" unique_id=977700436]
+position = Vector2(24, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/Area2D2" unique_id=1410395403]
+
+[node name="Label2" type="Label" parent="Machine" unique_id=1297656314]
+visible = false
+offset_left = 256.0
+offset_top = 345.0
+offset_right = 345.0
+offset_bottom = 368.0
+text = "Pressione E"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=159239407]
+
+[node name="HUD" type="Control" parent="UI" unique_id=1543788926]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 39.0
+offset_bottom = 43.0
+
+[node name="InteractionLabel" type="Label" parent="UI/HUD" unique_id=194222926]
+visible = false
+layout_mode = 0
+offset_left = 265.0
+offset_top = 362.0
+offset_right = 354.0
+offset_bottom = 385.0
+text = "Pressione E"
+
+[node name="MachinePanel" parent="UI" unique_id=870984361 instance=ExtResource("5_pbw6q")]
+offset_left = -4.0
+offset_top = -7.0
+offset_right = 19.0
+offset_bottom = 22.0
+
+[node name="Objects" type="Node2D" parent="." unique_id=494572653]
+position = Vector2(6, 4)
+
+[node name="Audio" type="Node" parent="." unique_id=2107986492]
+
+[node name="GameManager" type="Node" parent="." unique_id=977842432]
+
+[node name="Player" parent="." unique_id=780913146 instance=ExtResource("2_idj7w")]
+z_index = 10
+position = Vector2(0, 8.999999)
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=753689053]
+position = Vector2(-2.9999847, -64.99999)
+scale = Vector2(1.327474, 1.5224609)
+texture = ExtResource("2_rgh2o")

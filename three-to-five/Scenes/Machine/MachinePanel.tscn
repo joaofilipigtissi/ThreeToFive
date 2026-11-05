@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://c4yvf0cw4oj85"]
+
+[ext_resource type="Script" uid="uid://bnykg030nsh4h" path="res://Scripts/Machinepanel.gd" id="1_5g8ny"]
+[ext_resource type="Texture2D" uid="uid://dfoa8cs5s1m33" path="res://Scenes/UI/machine_panel.png" id="2_2hfpp"]
+[ext_resource type="FontFile" uid="uid://rrbhbfehib18" path="res://fonts/PrStart.ttf" id="2_h2qfu"]
+[ext_resource type="AudioStream" uid="uid://6smmqei1xffg" path="res://sounds/click.wav" id="3_8xsgd"]
+[ext_resource type="AudioStream" uid="uid://dpxp0lcd2rwsj" path="res://sounds/success.wav" id="4_vxefx"]
+[ext_resource type="AudioStream" uid="uid://daoojal3b3hjg" path="res://sounds/error.wav" id="5_cy1bc"]
+[ext_resource type="AudioStream" uid="uid://dylk3rw1jrfuq" path="res://sounds/game_over.wav" id="6_n3y5c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjcpe"]
+bg_color = Color(0.16862746, 0.19215687, 0.21960784, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.30588236, 0.3529412, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MachinePanel" type="Control" unique_id=870984361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5g8ny")
+
+[node name="UI" type="Control" parent="." unique_id=935577792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI" unique_id=174664606]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2hfpp")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MachinePanel" type="Panel" parent="UI" unique_id=1924624623]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 0
+offset_right = 5.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bjcpe")
+
+[node name="TargetLabel" type="Label" parent="UI/MachinePanel" unique_id=1544107241]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 230.0
+offset_right = 668.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "Alvo: 5"
+
+[node name="ResultLabel" type="Label" parent="UI/MachinePanel" unique_id=169713088]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 395.0
+offset_right = 691.0
+offset_bottom = 418.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "Resultado"
+
+[node name="ScoreLabel" type="Label" parent="UI/MachinePanel" unique_id=1013843168]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 180.0
+offset_right = 455.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "Score: 0"
+
+[node name="TimerLabel" type="Label" parent="UI/MachinePanel" unique_id=2060355779]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 183.0
+offset_right = 898.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "Tempo restante: 10s"
+
+[node name="Number1Label1" type="Label" parent="UI/MachinePanel" unique_id=1199147252]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 284.0
+offset_right = 550.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "2"
+
+[node name="Operator1" type="OptionButton" parent="UI/MachinePanel" unique_id=209351153]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 276.0
+offset_right = 589.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+item_count = 4
+popup/item_0/text = "+"
+popup/item_0/id = 0
+popup/item_1/text = "-"
+popup/item_1/id = 1
+popup/item_2/text = "*"
+popup/item_2/id = 2
+popup/item_3/text = "/"
+popup/item_3/id = 3
+
+[node name="Number2Label2" type="Label" parent="UI/MachinePanel" unique_id=2010885048]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 282.0
+offset_right = 638.0
+offset_bottom = 305.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "5"
+
+[node name="Operator2" type="OptionButton" parent="UI/MachinePanel" unique_id=1941100743]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 275.0
+offset_right = 675.0
+offset_bottom = 306.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+item_count = 4
+popup/item_0/text = "+"
+popup/item_0/id = 0
+popup/item_1/text = "-"
+popup/item_1/id = 1
+popup/item_2/text = "*"
+popup/item_2/id = 2
+popup/item_3/text = "/"
+popup/item_3/id = 3
+
+[node name="Number3Label3" type="Label" parent="UI/MachinePanel" unique_id=711656811]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 283.0
+offset_right = 725.0
+offset_bottom = 306.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "5"
+
+[node name="ConfirmButton" type="Button" parent="UI/MachinePanel" unique_id=641145655]
+layout_mode = 0
+offset_left = 544.5
+offset_top = 354.0
+offset_right = 696.5
+offset_bottom = 385.0
+theme_override_fonts/font = ExtResource("2_h2qfu")
+text = "CONFIRMAR"
+
+[node name="RoundTimer" type="Timer" parent="." unique_id=1613662749]
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1969207413]
+stream = ExtResource("3_8xsgd")
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="." unique_id=1520256420]
+stream = ExtResource("4_vxefx")
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="." unique_id=107670444]
+stream = ExtResource("5_cy1bc")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=736678873]
+stream = ExtResource("6_n3y5c")
