@@ -25,6 +25,7 @@ func _on_button_up():
 		animate_scale(Vector2.ONE)
 
 func animate_scale(target_scale: Vector2):
+	pivot_offset = size / 2   # cresce a partir do centro
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)

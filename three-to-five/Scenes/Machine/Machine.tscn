@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://clgorhgfpgvm7" path="res://Scripts/Machine.gd" id="1_gkykp"]
 [ext_resource type="Texture2D" uid="uid://coagjac3ib14r" path="res://Scenes/Machine/machine2.png" id="2_gkykp"]
+[ext_resource type="FontFile" uid="uid://rrbhbfehib18" path="res://fonts/PrStart.ttf" id="3_font"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkykp"]
-size = Vector2(66, 96)
+size = Vector2(110, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(56, 30)
 
 [node name="Machine" type="Node2D" unique_id=1307664682]
 script = ExtResource("1_gkykp")
@@ -12,21 +16,32 @@ script = ExtResource("1_gkykp")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2055075101]
 texture = ExtResource("2_gkykp")
 
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 33)
+shape = SubResource("RectangleShape2D_body")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1038150723]
-position = Vector2(0, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1129945454]
-position = Vector2(1, -20)
 shape = SubResource("RectangleShape2D_gkykp")
 debug_color = Color(6.256998e-07, 0.62530327, 0.52426195, 0.41960785)
 
 [node name="Label" type="Label" parent="." unique_id=704864838]
 visible = false
-offset_left = -44.0
-offset_top = -84.0
-offset_right = 45.0
-offset_bottom = -61.0
+z_index = 20
+offset_left = -60.0
+offset_top = -86.0
+offset_right = 60.0
+offset_bottom = -70.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 8
 text = "Pressione E"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
